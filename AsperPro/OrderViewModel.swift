@@ -12,6 +12,7 @@ import Foundation
 struct Constants {
     static let dateFormatterGet = "yyyy-MM-dd HH:mm:ss  +zzzz"
     static let dateFormatterPrint = "dd MMM, yyyy"
+    static let createdAtDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
     static let catalogsDictionary: [String: CatalogTitle] = [
         
@@ -42,6 +43,8 @@ public final class OrderViewModel {
     let photosText: String
     let service_title: String
     
+    let timeAgo: String
+    
     
     
     let isRead: Bool
@@ -51,6 +54,7 @@ public final class OrderViewModel {
     let photosArray: [String]
     let to_location: String
     let from_location: String
+    let price: String
     
     init(order: Order) {
         
@@ -73,8 +77,22 @@ public final class OrderViewModel {
         self.card_payment = order.extra.card_payment
         self.city_id = order.extra.city_id
         self.isRead = order.is_read
+        
+        self.timeAgo = OrderViewModel.dateToTimeAgo(createdAtDateString: order.created_at, dateFormate: Constants.createdAtDateFormat)
+        self.price = String(order.extra.price)
     }
     
+    private static func dateToTimeAgo(createdAtDateString: String, dateFormate: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormate
+        
+        guard let date = dateFormatter.date(from: createdAtDateString) else {
+            fatalError("ERROR: Date conversion failed due to mismatched format.")
+        }
+       
+        return  date.getElapsedInterval() + " назад"
+    }
     
     private static func dateFormatter(getFormate: String, printFormat: String, unformattedDateString: String) -> String{
         
@@ -96,6 +114,8 @@ public final class OrderViewModel {
         }
         return dateString
     }
- 
+    
+    
 }
+
 

@@ -17,6 +17,8 @@ class AutoPartsCommentCell: BaseTVCell, UITextFieldDelegate {
     
     var didChoseCountries: (() -> Void)?
     
+    var didWriteComment: ((String) -> Void)?
+    
     func configureCellWith(viewModel: OrderViewModel){
     
     }
@@ -68,6 +70,14 @@ class AutoPartsCommentCell: BaseTVCell, UITextFieldDelegate {
         return tf
     }()
     
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == commentTF {
+            if let comment = commentTF.text {
+                didWriteComment?(comment)
+            }
+        }
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         

@@ -16,9 +16,5 @@ class ShowPhotosCell: ServiceTitleCell {
         super.setupViews()
 //        typeLabel.text = "Посмотреть фотографии"
 //        typeImageView.image = #imageLiteral(resourceName: "иконка фото")
-        
-        
-        
-        
     }
 }

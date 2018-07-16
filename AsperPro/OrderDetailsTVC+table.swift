@@ -43,7 +43,11 @@ extension OrderDetailsTVC {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: autoPartsCommentCellId, for: indexPath) as! AutoPartsCommentCell
                 
+                cell.didWriteComment = { [weak self] comment in
+                    self?.comment = comment
+                }
                
+                
                 cell.didChoseDeliveryType = {
                     self.handleKeyboard()
 //                    let ip = IndexPath(row: 2, section: 0)

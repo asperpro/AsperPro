@@ -12,28 +12,27 @@ import UIKit
 
 class OrdersHistoryCell: UITableViewCell {
     
+    
     var isNew = true
     
-    var order: Order!{
-        didSet{
-            print(order.is_read)
-            if order.is_read {
-                blueCircle.isHidden = true
-                timeLabel.textColor = .black
-            } else {
-                blueCircle.isHidden = false
-                timeLabel.textColor = UIColor(red: 0, green: 0.48, blue: 1, alpha: 1)
-            }
-            mainLabel.text = order.car_brand + "   " + order.car_model + "   " + String(order.car_year)
-//            stringToDate(date: order.created_at)
-            if !isNew {
-                priceLabel.text = "Вы указали цену: \(order.extra.price) тг"
-            } else {
-                priceLabel.text = order.comment
-            }
-            
+    func configureWith(orderViewModel: OrderViewModel){
+        mainLabel.text = orderViewModel.carModelName
+        timeLabel.text = orderViewModel.timeAgo
+        if !orderViewModel.isRead {
+            timeLabel.textColor = .mainBlue()
+            blueCircle.isHidden = false
+        } else {
+            timeLabel.textColor = .black
+            blueCircle.isHidden = true
+        }
+        
+        if !isNew {
+            priceLabel.text = "Вы указали цену: \(orderViewModel.price) тг"
+        } else {
+            priceLabel.text = orderViewModel.commentText
         }
     }
+    
     
     let blueCircle: UIView = {
         let view = UIView()

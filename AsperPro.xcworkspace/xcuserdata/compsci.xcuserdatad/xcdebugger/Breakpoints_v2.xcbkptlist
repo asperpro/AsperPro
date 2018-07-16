@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsperPro/OrderDetailsTVC+network.swift"
-            timestampString = "553418882.508787"
+            timestampString = "553432380.885601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "handleSendPrice(price:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AsperPro/OrderDetailsTVC+network.swift"
-            timestampString = "553418882.508866"
+            timestampString = "553432380.885675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "handleSendPrice(price:)"
             landmarkType = "7">
             <Locations>
@@ -282,11 +282,11 @@
                   moduleName = "AsperPro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/compsci/Desktop/swift-projects/AsperPro/AsperPro/OrderDetailsTVC+network.swift"
-                  timestampString = "553420805.907761"
+                  timestampString = "553432381.099457"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
                   offsetFromSymbolStart = "2196">
                </Location>
                <Location
@@ -297,11 +297,11 @@
                   moduleName = "AsperPro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/compsci/Desktop/swift-projects/AsperPro/AsperPro/OrderDetailsTVC+network.swift"
-                  timestampString = "553420805.909621"
+                  timestampString = "553432381.1010571"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>

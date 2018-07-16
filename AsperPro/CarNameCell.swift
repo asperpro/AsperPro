@@ -13,6 +13,7 @@ class CarNameCell: BaseTVCell {
     
     func configureWith(orderViewModel: OrderViewModel){
         mainLabel.text = orderViewModel.carModelName
+        timeLabel.text = orderViewModel.timeAgo
         if !orderViewModel.isRead {
             timeLabel.textColor = .mainBlue()
         } else {

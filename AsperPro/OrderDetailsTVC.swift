@@ -32,6 +32,7 @@ class OrderDetailsTVC: UITableViewController {
     
     var orderViewModel: OrderViewModel!
     
+    var comment = ""
     var autoPartCondition = ""
     var deliveryType = ""
     

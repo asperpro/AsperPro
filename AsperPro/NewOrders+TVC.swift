@@ -35,7 +35,7 @@ extension NewOrdersTVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ordersHistoryCellId, for: indexPath) as! OrdersHistoryCell
-        cell.order = ordersArray[indexPath.row]
+        cell.configureWith(orderViewModel: OrderViewModel(order: ordersArray[indexPath.row]))
         return cell
     }
     

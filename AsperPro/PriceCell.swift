@@ -57,6 +57,7 @@ class PriceCell: BaseTVCell {
         lb.backgroundColor = .clear
         lb.keyboardType = .numberPad
         lb.placeholder = "0"
+        lb.textAlignment = .center
         return lb
         
     }()
@@ -173,12 +174,18 @@ class PriceCell: BaseTVCell {
         contentView.addSubview(enterPriceLabel)
         enterPriceLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 13, paddingLeft: 30, paddingBottom: 0, paddingRight: 0, width: 120, height: 16)
         
+        let myView = UIView()
+        myView.backgroundColor = .gray
+        contentView.addSubview(myView)
+        
         contentView.addSubview(priceLabel)
         priceLabel.anchor(top: enterPriceLabel.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 100, height: 43)
         priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        priceLabel.addSubview(myView)
+        myView.anchor(top: nil, left: priceLabel.leftAnchor, bottom: priceLabel.bottomAnchor, right: priceLabel.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1.4)
         
         contentView.addSubview(priceImageView)
-        priceImageView.anchor(top: nil, left: priceLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 16, height: 16)
+        priceImageView.anchor(top: nil, left: priceLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 4, paddingBottom: 0, paddingRight: 0, width: 16, height: 16)
         priceImageView.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor).isActive = true
         
         let stackView = UIStackView(arrangedSubviews: [cancelButton, reserveButton])

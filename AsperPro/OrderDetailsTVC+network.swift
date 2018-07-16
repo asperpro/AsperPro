@@ -34,8 +34,11 @@ extension OrderDetailsTVC {
         let parameters: [String: Any] = [
             "auth_token": token,
             "poi_request_id": order.id,
-            "price": price
-//            "xyz": "xyzasd"
+            "price": price,
+            "coment": comment,
+            "autoPartCondition": autoPartCondition,
+            "deliveryType": deliveryType,
+            "country": selectedCountryName
         ]
         
         let requestString = "https://asper.kz/api/requests/admin/accept"
