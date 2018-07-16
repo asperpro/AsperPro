@@ -68,10 +68,22 @@ class MenuVC: UITableViewController {
             navigationController?.pushViewController(a, animated: true)
             
         } else {
+            handleAlarmAlert()
             return
 //            handleRegisterPoi()
         }
     }
+    
+    
+    func handleAlarmAlert(){
+        
+        let alert = UIAlertController(title: "Данный раздел еще не заполнен", message: "", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     
     func handleLogoutAlert(){

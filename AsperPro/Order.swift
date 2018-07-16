@@ -30,7 +30,7 @@ public struct Order {
     let user_name: String
     let user_phone: String
     let poi_title: String
-    
+    let extraInfo: Extra_info
     
 //    extra_info: { }
     init(json: JSON) {
@@ -43,6 +43,7 @@ public struct Order {
         self.car_model = json["car_model"].stringValue
         self.created_at = json["created_at"].stringValue
         self.extra = Extra(json: json["extra"])
+        self.extraInfo = Extra_info(json: json["extra_info"])
         self.admin_name = json["admin_name"].stringValue
         self.catalog_title = json["catalog_title"].stringValue
         self.user_name = json["user_name"].stringValue
@@ -69,7 +70,7 @@ struct Extra {
     let photosArray: [String]
     let to_location: String
     let from_location: String
-    let price: Int
+    
     
     init(json: JSON) {
         self.date = json["date"].stringValue
@@ -79,6 +80,17 @@ struct Extra {
         self.photosArray = json["photo[]"].arrayObject as? [String] ?? []
         self.from_location = json["from_location"].stringValue
         self.to_location = json["to_location"].stringValue
+        
+    }
+}
+
+
+struct Extra_info {
+    
+    let price: Int
+    
+    init(json: JSON) {
+        
         self.price = json["price"].intValue
     }
 }

@@ -54,7 +54,7 @@ public final class OrderViewModel {
     let photosArray: [String]
     let to_location: String
     let from_location: String
-    let price: String
+    let price: Int
     
     init(order: Order) {
         
@@ -77,9 +77,10 @@ public final class OrderViewModel {
         self.card_payment = order.extra.card_payment
         self.city_id = order.extra.city_id
         self.isRead = order.is_read
-        
+        self.price = order.extraInfo.price
         self.timeAgo = OrderViewModel.dateToTimeAgo(createdAtDateString: order.created_at, dateFormate: Constants.createdAtDateFormat)
-        self.price = String(order.extra.price)
+        
+        
     }
     
     private static func dateToTimeAgo(createdAtDateString: String, dateFormate: String) -> String {

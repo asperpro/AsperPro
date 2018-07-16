@@ -27,8 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = MainNavigationController()
         
+
         
         return true
+    }
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    {
+        let deviceTokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print(123)
+        print(deviceTokenString)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

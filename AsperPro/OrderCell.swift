@@ -18,15 +18,20 @@ class OrdersHistoryCell: UITableViewCell {
     func configureWith(orderViewModel: OrderViewModel){
         mainLabel.text = orderViewModel.carModelName
         timeLabel.text = orderViewModel.timeAgo
+        
         if !orderViewModel.isRead {
+            
             timeLabel.textColor = .mainBlue()
             blueCircle.isHidden = false
+            
         } else {
+            
             timeLabel.textColor = .black
             blueCircle.isHidden = true
         }
         
         if !isNew {
+            print(orderViewModel.price)
             priceLabel.text = "Вы указали цену: \(orderViewModel.price) тг"
         } else {
             priceLabel.text = orderViewModel.commentText

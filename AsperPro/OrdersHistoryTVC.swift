@@ -27,13 +27,15 @@ class OrdersHistoryTVC: NewOrdersTVC {
     override func fetchOrders() {
         
         let auth_token = UserDefaults.standard.getAuthToken()
-        let url = "https://asper.kz/api/requests/admin/responses/list?auth_token=\(auth_token)"
         
+        let url = "https://asper.kz/api/requests/admin/responses/list?auth_token=\(auth_token)"
         
         Alamofire.request(url).responseJSON { response in
             print(response)
             if let dictionary = response.result.value {
+                
                 let JSONData = JSON(dictionary)
+                
                 guard let ordersArray = JSONData["result"].array else {
                     return
                 }
@@ -49,8 +51,19 @@ class OrdersHistoryTVC: NewOrdersTVC {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func handleAlarmAlert(){
         
+        let alert = UIAlertController(title: "Данный раздел еще не заполнен", message: "", preferredStyle: .alert)
+        
+        
+        alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        handleAlarmAlert()
         
         return
         
@@ -64,8 +77,8 @@ class OrdersHistoryTVC: NewOrdersTVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ordersHistoryCellId, for: indexPath) as! OrdersHistoryCell
-        cell.isNew = false
         cell.configureWith(orderViewModel: OrderViewModel(order: ordersArray[indexPath.row]))
+        cell.isNew = false
         return cell
     }
     
